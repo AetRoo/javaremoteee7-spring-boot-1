@@ -2,6 +2,7 @@ package com.sda.practice.springbootpractice.models;
 
 import lombok.Data;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,6 +25,6 @@ public class Person {
   private String lastName;
   private int age;
 
-  @OneToOne
+  @OneToOne(cascade = CascadeType.MERGE)
   private City city;
 }
