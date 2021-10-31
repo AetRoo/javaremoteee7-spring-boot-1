@@ -26,4 +26,11 @@ public interface TeacherService {
    * @return List of Teacher
    */
   List<Teacher> findAllTeachersByCity(City city);
+
+  /**
+   * To create a new teacher
+   *
+   * @param teacher Teacher
+   */
+  void createTeacher(Teacher teacher);
 }
