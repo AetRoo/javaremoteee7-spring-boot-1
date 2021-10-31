@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import java.time.LocalDate;
 
 /**
  * Teacher model
@@ -35,4 +36,6 @@ public class Teacher {
 
   @Enumerated(EnumType.STRING)
   private Speciliazation speciliazation;
+
+  private LocalDate joinDate;
 }

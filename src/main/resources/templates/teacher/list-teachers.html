@@ -20,7 +20,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Teacher</a>
+            <a class="nav-link" href="/teacher/">Teacher</a>
           </li>
         </ul>
       </div>
@@ -35,9 +35,26 @@
         <table th:case="true" class="table">
           <thead>
             <tr>
-
+              <th scope="col">#</th>
+              <th scope="col">First name</th>
+              <th scope="col">Last name</th>
+              <th scope="col">School</th>
+              <th scope="col">Specialization</th>
+              <th scope="col">City</th>
+              <th scope="col">Join date</th>
             </tr>
           </thead>
+          <tbody>
+            <tr th:each="teacher : ${teachers}">
+              <th scope="row" th:text="${teacher.id}"></th>
+              <td th:text="${teacher.firstName}"></td>
+              <td th:text="${teacher.lastName}"></td>
+              <td th:text="${teacher.school}"></td>
+              <td th:text="${teacher.speciliazation}"></td>
+              <td th:text="${teacher.city.name}"></td>
+              <td th:text="${teacher.joinDate}"></td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
