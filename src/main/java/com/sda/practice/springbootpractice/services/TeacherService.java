@@ -4,6 +4,7 @@ import com.sda.practice.springbootpractice.models.City;
 import com.sda.practice.springbootpractice.models.Teacher;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Service to handle teacher related operations
@@ -33,4 +34,17 @@ public interface TeacherService {
    * @param teacher Teacher
    */
   void createTeacher(Teacher teacher);
+
+  /**
+   * To find teacher by Id
+   * @param id Id of the teacher
+   * @return Optional of Teacher
+   */
+  Optional<Teacher> findTeacherById(Long id);
+
+  /**
+   * To update a teacher
+   * @param teacher Teacher
+   */
+  void updateTeacher(Teacher teacher);
 }
