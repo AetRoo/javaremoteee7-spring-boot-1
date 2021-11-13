@@ -1,6 +1,7 @@
 package com.sda.practice.springbootpractice.models;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -37,5 +38,6 @@ public class Teacher {
   @Enumerated(EnumType.STRING)
   private Speciliazation speciliazation;
 
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private LocalDate joinDate;
 }
