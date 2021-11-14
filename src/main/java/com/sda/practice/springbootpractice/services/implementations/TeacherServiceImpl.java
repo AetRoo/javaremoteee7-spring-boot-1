@@ -29,6 +29,7 @@ public class TeacherServiceImpl implements TeacherService {
 
   @Override
   public void createTeacher(Teacher teacher) {
+    teacher.setActive(true);
     teacherRepository.save(teacher);
   }
 
@@ -44,5 +45,33 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     teacherRepository.saveAndFlush(teacher);
+  }
+
+  @Override
+  public void deleteTeacherById(Long id) {
+    Optional<Teacher> teacherOptional = findTeacherById(id);
+
+    if (!teacherOptional.isPresent()) {
+      throw new RuntimeException("Teacher not found!");
+    }
+    else {
+      Teacher teacher = teacherOptional.get();
+      teacher.setActive(false);
+      teacherRepository.saveAndFlush(teacher);
+    }
+  }
+
+  @Override
+  public void restoreTeacherById(Long id) {
+    Optional<Teacher> teacherOptional = findTeacherById(id);
+
+    if (!teacherOptional.isPresent()) {
+      throw new RuntimeException("Teacher not found!");
+    }
+    else {
+      Teacher teacher = teacherOptional.get();
+      teacher.setActive(true);
+      teacherRepository.saveAndFlush(teacher);
+    }
   }
 }

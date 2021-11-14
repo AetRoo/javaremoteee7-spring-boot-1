@@ -37,6 +37,7 @@ public interface TeacherService {
 
   /**
    * To find teacher by Id
+   *
    * @param id Id of the teacher
    * @return Optional of Teacher
    */
@@ -44,7 +45,22 @@ public interface TeacherService {
 
   /**
    * To update a teacher
+   *
    * @param teacher Teacher
    */
   void updateTeacher(Teacher teacher);
+
+  /**
+   * To delete a teacher by Id
+   *
+   * @param id Id of the teacher
+   */
+  void deleteTeacherById(Long id);
+
+  /**
+   * To restore a teacher by Id
+   *
+   * @param id Id of the teacher
+   */
+  void restoreTeacherById(Long id);
 }

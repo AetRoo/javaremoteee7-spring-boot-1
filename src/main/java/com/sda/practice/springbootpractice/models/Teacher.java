@@ -40,4 +40,6 @@ public class Teacher {
 
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   private LocalDate joinDate;
+
+  private boolean isActive;
 }

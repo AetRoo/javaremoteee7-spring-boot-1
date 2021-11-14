@@ -109,4 +109,33 @@ public class TeacherController {
       return "redirect:/teacher/update";
     }
   }
+    @GetMapping("/delete/{id}")
+    public String deleteTeacher(@PathVariable("id") Long id, RedirectAttributes redirectAttributes){
+      try {
+        teacherService.deleteTeacherById(id);
+        redirectAttributes.addFlashAttribute("messageType", "success");
+        redirectAttributes.addFlashAttribute("message", "The teacher has been deleted successfully!");
+        return "redirect:/teacher";
+      } catch (Exception e){
+        System.out.println(e.getLocalizedMessage());
+        redirectAttributes.addFlashAttribute("messageType", "error");
+        redirectAttributes.addFlashAttribute("message", "Error in deleting the teacher!");
+        return "redirect:/teacher";
+      }
+    }
+
+  @GetMapping("/restore/{id}")
+  public String restoreTeacher(@PathVariable("id") Long id, RedirectAttributes redirectAttributes){
+    try {
+      teacherService.restoreTeacherById(id);
+      redirectAttributes.addFlashAttribute("messageType", "success");
+      redirectAttributes.addFlashAttribute("message", "The teacher has been restored successfully!");
+      return "redirect:/teacher";
+    } catch (Exception e){
+      System.out.println(e.getLocalizedMessage());
+      redirectAttributes.addFlashAttribute("messageType", "error");
+      redirectAttributes.addFlashAttribute("message", "Error in restoring the teacher!");
+      return "redirect:/teacher";
+    }
+  }
 }
