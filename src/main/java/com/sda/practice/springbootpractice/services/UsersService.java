@@ -1,6 +1,6 @@
 package com.sda.practice.springbootpractice.services;
 
-import com.sda.practice.springbootpractice.models.User;
+import com.sda.practice.springbootpractice.models.Users;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,13 +10,13 @@ import java.util.Optional;
  *
  * @author Vinod John
  */
-public interface UserService {
+public interface UsersService {
   /**
    * To create a new user
    *
-   * @param user User
+   * @param users User
    */
-  void createUser(User user);
+  void createUser(Users users);
 
   /**
    * To find user by username
@@ -24,7 +24,7 @@ public interface UserService {
    * @param username User's username
    * @return Optional of user
    */
-  Optional<User> findUserByUsername(String username);
+  Optional<Users> findUserByUsername(String username);
 
   /**
    * To find user by username and password
@@ -33,12 +33,12 @@ public interface UserService {
    * @param password User's password
    * @return Optional of User
    */
-  Optional<User> findUserByUsernameAndPassword(String username, String password);
+  Optional<Users> findUserByUsernameAndPassword(String username, String password);
 
   /**
    * To get all the users
    *
    * @return List of User
    */
-  List<User> getAllUsers();
+  List<Users> getAllUsers();
 }

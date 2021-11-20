@@ -1,7 +1,7 @@
 package com.sda.practice.springbootpractice.services.implementations;
 
-import com.sda.practice.springbootpractice.models.User;
-import com.sda.practice.springbootpractice.services.UserService;
+import com.sda.practice.springbootpractice.models.Users;
+import com.sda.practice.springbootpractice.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,11 +18,11 @@ import java.util.Optional;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
   @Autowired
-  private UserService userService;
+  private UsersService usersService;
 
   @Override
   public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-    Optional<User> optionalUser = userService.findUserByUsername(s);
+    Optional<Users> optionalUser = usersService.findUserByUsername(s);
 
     if(!optionalUser.isPresent()){
       throw new UsernameNotFoundException("User not found with username: " + s);
